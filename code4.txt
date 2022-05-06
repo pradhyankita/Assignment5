@@ -1,0 +1,191 @@
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ echo $(($RANDOM %10))
+3
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ echo $(($RANDOM %10))
+9
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ echo $(($RANDOM %10))
+4
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ echo $(($RANDOM %10))
+4
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ echo $(($RANDOM %10))
+4
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ echo $(($RANDOM %10))
+1
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ (((RANDOM %10) +1))
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ echo (((RANDOM %10) +1))
+bash: syntax error near unexpected token `('
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ echo (((RANDOM %10) +1)))
+bash: syntax error near unexpected token `('
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ echo $(((RANDOM %10) +1))
+1
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ echo $(((RANDOM %10) +1))
+8
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ echo $(((RANDOM %10) +1))
+3
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ echo $(((RANDOM %10) +1))
+1
+
+
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ nano dice.sh
+
+dice1=$((RANDOM%6))
+echo "Random Value of dice 1 is" $dice1
+dice2=$((RANDOM%6))
+echo "Random Value of dice 2 is" $dice2
+sum=$(( $dice1+$dice2 ))
+echo "The sum of both the dices is" $sum
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ ./dice.sh
+Random Value of dice 1 is 4
+Random Value of dice 2 is 5
+The sum of both the dices is 9
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ nano dice2.sh
+
+for i in {1..5}
+do
+echo $(((RANDOM%99)+1))
+done
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ ./dice2.sh
+97
+40
+92
+10
+74
+
+for i in {1..5}
+do
+echo $(((RANDOM%99)+1))
+n= $echo((RANDOM%99)+1)
+len=$( echo $n | wc -c )
+len=$(( $len -1 ))
+for((i=1 ; i<=$len ; i++))
+do
+sum=$(($sum + $(echo $n | cut -c $i) ))
+avg=$($sum / 5)
+done
+echo "Sum of $n is $sum"
+echo "Average of $n is $avg"
+
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ nano inch.sh
+
+read -p "Enter the number of inches:"  inch
+feet=$`awk "BEGIN{print $inch/12}"`
+echo $feet
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ ./inch.sh
+Enter the number of inches:2
+$0.166667
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ ./inch.sh
+Enter the number of inches:42
+$3.5
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ ./rect.sh
+Enter length20
+enter width60
+./rect.sh: line 5: echoThe area of the rect is 1200: command not found
+
+#!/bin/sh
+read -p "Enter length" length
+read -p "enter width" width
+area=$[$length * $width]
+declare -i n
+in=inches
+ft=feet
+read area in "as" feet
+if []; then
+echo "$area $in= $[n/12] $ft"
+fi
+echo"The area of the rect is $area"
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ ./dice3.sh
+124
+112
+107
+164
+152
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ ./dice3.sh
+174
+149
+118
+144
+126
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ ./dice3.sh
+100
+193
+154
+136
+193
+
+
+for i in {1..5}
+do
+echo $(((RANDOM%99)+100))
+done
+
+
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ nano coin.sh
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ ./coin.sh
+heads
+
+rapen@Pradnyas-laptop MINGW64 ~/OneDrive/Desktop/shell_script (main)
+$ ./coin.sh
+tails
+
+tails=1;
+check=$((RANDOM%2));
+if [ $check -eq $tails ]
+then
+echo "tails";
+else
+echo "heads";
+fi
+
+
+
+
